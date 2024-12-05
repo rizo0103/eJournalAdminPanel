@@ -1,8 +1,12 @@
-const Main = () => {
+import React from 'react';
+import './style.css';
+import Sidebar from '../temps/Sidebar';
+
+const Main: React.FC = () => {
     return (
-        <>
-            <h1> Admin Panel </h1>
-        </>
+        <main className='main-container'>
+            <Sidebar />
+        </main>
     );
 };
 
