@@ -1,4 +1,3 @@
-// src/components/main/Main.tsx
 import React from 'react';
 import './style.css';
 import Sidebar from '../temps/Sidebar';
@@ -35,6 +34,12 @@ const Main: React.FC = () => {
         ],
     };
 
+    const topGroups = [
+        { groupName: 'Group 1', absencePercentage: '15%' },
+        { groupName: 'Group 2', absencePercentage: '10%' },
+        { groupName: 'Group 3', absencePercentage: '25%' },
+    ];
+
     return (
         <main className="main-content">
             <Sidebar />
@@ -43,12 +48,27 @@ const Main: React.FC = () => {
                 <div className="chart-container">
                     <div className="chart">
                         <h3>Attendance</h3>
-                        <Bar data={attendanceData} options={{ responsive: true, maintainAspectRatio: false }} />
+                        <div className="chart-diagram">
+                            <Bar data={attendanceData} options={{ responsive: true, maintainAspectRatio: false }} />
+                        </div>
                     </div>
                     <div className="chart">
                         <h3>Absence</h3>
-                        <Pie data={absenceData} options={{ responsive: true, maintainAspectRatio: false }} />
+                        <div className="chart-diagram">
+                            <Pie data={absenceData} options={{ responsive: true, maintainAspectRatio: false }} />
+                        </div>
                     </div>
+                </div>
+                <div className="top-groups">
+                    <h3>Top Groups with Smallest Absence</h3>
+                    <ul>
+                        {topGroups.map((group, index) => (
+                            <li key={index}>
+                                <span>{group.groupName}</span>
+                                <span>{group.absencePercentage}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </main>
