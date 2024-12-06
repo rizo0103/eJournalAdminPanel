@@ -1,6 +1,7 @@
-/* src/components/Sidebar.css */
+/* src/components/temp/Sidebar.css */
+
 .sidebar {
-    width: 260px;
+    width: 280px;
     height: calc(100vh * 85 / 100);
     background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
     color: #fff;
@@ -10,69 +11,87 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: width 0.3s ease;
-  }
-  
-  .sidebar:hover {
-    width: 280px;
-  }
-  
-  .profile-section {
+    margin-left: 5%;
+}
+
+.sidebar:hover {
+    width: 300px;
+}
+
+.profile-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
-  }
-  
-  .profile-avatar {
+}
+
+.profile-avatar {
     width: 90px;
     height: 90px;
     border-radius: 50%;
     border: 2px solid #fff;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
-  }
-  
-  .profile-avatar:hover {
+    object-fit: cover;
+    /* Ensure the image covers the entire circle */
+    background-color: #fff;
+    /* Fallback color */
+}
+
+.profile-avatar:hover {
     transform: scale(1.1);
-  }
-  
-  .profile-info {
+}
+
+.profile-info {
     text-align: center;
-  }
-  
-  .profile-info h4 {
+}
+
+.profile-info h4 {
     margin: 0;
     font-size: 1.2em;
-  }
-  
-  .profile-info p {
+}
+
+.profile-info p {
     margin: 0;
     font-size: 0.85em;
     color: #a0a0a0;
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     width: 100%;
     display: flex;
     flex-direction: column;
-  }
-  
-  .nav-links a {
+    align-items: flex-start;
+    padding-left: 15px;
+}
+
+.nav-links a {
     color: #fff;
+    width: 80%;
     text-decoration: none;
     padding: 12px 25px;
     margin: 8px 0;
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s;
-    text-align: center;
-  }
-  
-  .nav-links a:hover {
+    position: relative;
+}
+
+.nav-links a::before {
+    content: '•';
+    color: #ff416c;
+    font-size: 1.5em;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-links a:hover {
     background-color: #1e3a5f;
     transform: translateX(10px);
-  }
-  
-  .logout-button {
+}
+
+.logout-button {
     margin-top: auto;
     padding: 12px 25px;
     background: linear-gradient(145deg, #ff416c, #ff4b2b);
@@ -82,10 +101,9 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     text-align: center;
-  }
-  
-  .logout-button:hover {
+}
+
+.logout-button:hover {
     background-color: #ff5733;
     transform: translateY(-5px);
-  }
-  
+}
