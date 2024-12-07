@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
+    const location = useLocation();
+
     return (
         <div className="sidebar">
+            
             <div className="profile-section">
                 <img src="https://getwallpapers.com/wallpaper/full/5/2/8/1155495-full-size-assassins-creed-wallpaper-hd-1920x1080-for-desktop.jpg" alt="Profile Avatar" className="profile-avatar" />
                 <div className="profile-info">
@@ -12,13 +15,16 @@ const Sidebar: React.FC = () => {
                     <p> Owner </p>
                 </div>
             </div>
+
             <nav className="nav-links">
-                <a href='/'> Dashboard </a>
-                <Link to="/manage-study-dates">Manage Study Dates</Link>
-                <Link to="/manage-teacher-assignments">Manage Teacher Assignments</Link>
-                <Link to="/group-statistics">Group Statistics</Link>
+                <a href = '/' className = {location.pathname === '/' ? 'active' : ''}> Dashboard </a>
+                <a href = "/manage-study-dates" className = {location.pathname === '/manage-study-dates' ? 'active' : ''}> Manage Study Dates </a>
+                <a href = "/manage-teacher-assignments" className = {location.pathname === '/manage-teacher-assignments' ? 'active' : ''}> Manage Teacher Assignments </a>
+                <a href = "/group-statistics" className = {location.pathname === '/group-statistics' ? 'active' : ''}> Group Statistics </a>
             </nav>
-            <button className="logout-button">Logout</button>
+            
+            <button className="logout-button"> Logout </button>
+        
         </div>
     );
 };

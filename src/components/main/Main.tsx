@@ -40,35 +40,63 @@ const Main: React.FC = () => {
         { groupName: 'Group 3', absencePercentage: '25%' },
     ];
 
+    const topStudents = [
+        { studentName: 'Alice', groupName: 'Group 1', absencePercentage: '5%' },
+        { studentName: 'Bob', groupName: 'Group 2', absencePercentage: '3%' },
+        { studentName: 'Charlie', groupName: 'Group 3', absencePercentage: '4%' },
+    ];
+
     return (
         <main className="main-content">
             <Sidebar />
             <div className="dashboard-wrapper">
-                <h2>Group Statistics</h2>
                 <div className="chart-container">
                     <div className="chart">
-                        <h3>Attendance</h3>
+                        <h3>Attendance:</h3>
                         <div className="chart-diagram">
                             <Bar data={attendanceData} options={{ responsive: true, maintainAspectRatio: false }} />
                         </div>
                     </div>
                     <div className="chart">
-                        <h3>Absence</h3>
+                        <h3>Absence:</h3>
                         <div className="chart-diagram">
                             <Pie data={absenceData} options={{ responsive: true, maintainAspectRatio: false }} />
                         </div>
                     </div>
                 </div>
-                <div className="top-groups">
-                    <h3>Top Groups with Smallest Absence</h3>
-                    <ul>
-                        {topGroups.map((group, index) => (
-                            <li key={index}>
-                                <span>{group.groupName}</span>
-                                <span>{group.absencePercentage}</span>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="top-section">
+                    <div className="top-groups">
+                        <h3>Top Groups with Smallest Absence:</h3>
+                        <ul>
+                            {topGroups.map((group, index) => (
+                                <li key={index}>
+                                    <span>{group.groupName}</span>
+                                    <span>{group.absencePercentage}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="top-students">
+                        <h3>Top Students With Smallest Absence:</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Group</th>
+                                    <th>Absence Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {topStudents.map((student, index) => (
+                                    <tr key={index}>
+                                        <td>{student.studentName}</td>
+                                        <td>{student.groupName}</td>
+                                        <td>{student.absencePercentage}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
