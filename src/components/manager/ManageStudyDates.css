@@ -1,6 +1,15 @@
+.main-content {
+    display: flex;
+    width: 100%;
+    height: calc(100vh * 95 / 100);
+    align-items: center;
+}
+
 .manage-study-dates {
     padding: 20px;
     color: #fff;
+    width: calc(100% - 390px); /* Subtract Sidebar width */
+    overflow: hidden;
 }
 
 .manage-study-dates h2 {
